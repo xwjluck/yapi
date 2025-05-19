@@ -167,6 +167,12 @@ module.exports = {
           }
         });
 
+        baseConfig.module.preLoaders.push({
+          test: /\.(js|jsx)$/,
+          include: [path.resolve(__dirname, './node_modules/swagger-client')],
+          loader: 'babel-loader'
+        })
+
         baseConfig.module.loaders.push({
           test: /\.(sass|scss)$/,
           loader: ykit.ExtractTextPlugin.extract(
